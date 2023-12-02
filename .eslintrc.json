@@ -1,0 +1,10 @@
+{
+    "root": true,
+    "extends": ["leonardjouve"],
+    "env": {
+        "node": true
+    },
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "extends": "tsconfig-leonardjouve",
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "dist",
+        "types": ["node"],
+        "target": "ES2021",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "verbatimModuleSyntax": false,
+        "esModuleInterop": true,
+        "lib": ["es2021"],
+    }
+}
