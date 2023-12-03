@@ -13,6 +13,8 @@ const DIGITS = {
 };
 
 export const day1 = (): void => {
+    console.log("Day1");
+
     const input = readFileSync("input/day1.txt", "utf-8");
 
     resolve(input, /(?=(\d))/g);

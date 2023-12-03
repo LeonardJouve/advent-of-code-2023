@@ -16,6 +16,8 @@ const MAX_GREEN = 13;
 const MAX_BLUE = 14;
 
 export const day2 = (): void => {
+    console.log("Day2");
+
     const input = readFileSync("input/day2.txt", "utf-8");
 
     firstPart(input);
