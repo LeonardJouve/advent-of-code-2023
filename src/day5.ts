@@ -11,6 +11,11 @@ type Section = {
     ranges: Range[];
 };
 
+type SeedRange = {
+    start: number;
+    end: number;
+};
+
 export const day5 = (): void => {
     console.log("Day5");
 
@@ -40,13 +45,48 @@ const getMinValue = (sections: Section[], seeds: number[]): number => sections.r
     .reduce((previous, value) => Math.min(previous, value), Number.MAX_VALUE);
 
 const secondPart = (seedsLine: string, sections: Section[]): void => {
-    // const seeds = seedsLine.substring(seedsLine.indexOf(":") + 1)
-    //     .split(" ")
-    //     .filter(Boolean)
-    //     .map((value) => parseInt(value));
+    const seedsRanges = seedsLine.substring(seedsLine.indexOf(":") + 1)
+        .split(" ")
+        .filter(Boolean)
+        .map((value) => parseInt(value))
+        .reduce<SeedRange[]>((ranges, value, i, self) => {
+            if (!(i % 2)) {
+                return ranges;
+            }
 
-    seedsLine;
-    sections;
+            const start = self.at(i - 1);
+
+            if (!start) {
+                return ranges;
+            }
+
+            ranges.push({
+                start,
+                end: start + value,
+            });
+
+            return ranges;
+        }, []);
+
+    const min = seedsRanges.reduce((previous, {start, end}) => {
+        console.log("Range", start, end);
+
+        let minValue = previous;
+
+        for (let seed = start; seed < end; ++seed) {
+            const newMin = getMinValue(sections, [seed]);
+
+            if (minValue < newMin) {
+                continue;
+            }
+
+            minValue = newMin;
+        }
+
+        return minValue;
+    }, Number.MAX_VALUE);
+
+    console.log(min);
 };
 
 const parseSections = (sectionsLines: string[]): Section[] => sectionsLines.map<Section>((sectionLines) => {
