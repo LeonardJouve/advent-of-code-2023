@@ -19,7 +19,6 @@ const firstPart = (time: number[], distance: number[]): void => {
     const result = time.reduce((previous, currentTime, i) => {
         const currentDistance = distance[i];
 
-        console.log(currentTime, currentDistance);
         if (!currentDistance) {
             return previous;
         }
@@ -44,8 +43,6 @@ const firstPart = (time: number[], distance: number[]): void => {
 const secondPart = (time: number[], distance: number[]): void => {
     const joinedTime = joinRaces(time);
     const joinedDistance = joinRaces(distance);
-
-    console.log(joinedTime, joinedDistance);
 
     let winningWays = 0;
     for (let hold = 0; hold <= joinedTime; ++hold) {
