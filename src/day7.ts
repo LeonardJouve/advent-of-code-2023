@@ -44,12 +44,6 @@ const firstPart = (hands: Hand[]): void => {
 
 const secondPart = (hands: Hand[]): void => {
     const result = hands.sort(({cards: firstCards}, {cards: secondCards}) => compareCards(firstCards, secondCards, true))
-        // .map(({cards, bid}) => ({
-        //     cards,
-        //     bid,
-        //     strength: getCardsStrength(cards, true),
-        // }))
-        // .filter(({cards, strength}) => cards.includes("J") && strength >= HandStrength.FOUR);
         .reduce((previous, {bid}, i) => previous + (i + 1) * bid, 0);
 
     console.log(result);
@@ -77,7 +71,16 @@ const getCardsStrength = (cards: string, includeJocker: boolean): HandStrength =
             newStrength = previous === HandStrength.PAIR ? HandStrength.FULL : HandStrength.THREE;
             break;
         case 2:
-            newStrength = previous === HandStrength.PAIR ? HandStrength.DOUBLE_PAIR : previous === HandStrength.THREE ? HandStrength.FULL : HandStrength.PAIR;
+            switch (previous) {
+            case HandStrength.PAIR:
+                newStrength = HandStrength.DOUBLE_PAIR;
+                break;
+            case HandStrength.THREE:
+                newStrength = !includeJocker || !cards.includes("J") ? HandStrength.FULL : HandStrength.PAIR;
+                break;
+            default:
+                newStrength = HandStrength.PAIR;
+            }
             break;
         default:
             newStrength = previous;
@@ -140,7 +143,6 @@ const getBestJockerHand = (cards: [string, number][], jockerAmount: number): Han
 
     switch (jockerAmount) {
     case 5:
-        return HandStrength.FIVE;
     case 4:
         return HandStrength.FIVE;
     case 3:
