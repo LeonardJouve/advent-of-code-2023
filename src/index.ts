@@ -6,8 +6,9 @@
 // import {day6} from "./day6.js";
 // import {day7} from "./day7.js";
 // import {day8} from "./day8.js";
-
-import {day9} from "./day9.js";
+// import {day9} from "./day9.js";
+// import {day10} from "./day10.js";
+import {day11} from "./day11.js";
 
 // day1();
 // day2();
@@ -17,4 +18,6 @@ import {day9} from "./day9.js";
 // day6();
 // day7();
 // day8();
-day9();
+// day9();
+// day10();
+day11();
