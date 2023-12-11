@@ -14,7 +14,6 @@
         "@typescript-eslint/parser": "^6.13.1",
         "eslint": "^8.54.0",
         "eslint-config-leonardjouve": "^1.0.15",
-        "ts-node": "^10.9.1",
         "tsconfig-leonardjouve": "^1.0.1",
         "typescript": "^5.3.2"
     }
