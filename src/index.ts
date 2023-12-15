@@ -8,11 +8,11 @@
 // import {day8} from "./day8.js";
 // import {day9} from "./day9.js";
 // import {day10} from "./day10.js";
-// import { day12 } from "./day12.js";
 // import {day11} from "./day11.js";
 // import {day12} from "./day12.js";
 // import {day13} from "./day13.js";
-import {day14} from "./day14.js";
+// import {day14} from "./day14.js";
+import {day15} from "./day15.js";
 
 // day1();
 // day2();
@@ -27,4 +27,5 @@ import {day14} from "./day14.js";
 // day11();
 // day12();
 // day13();
-day14();
+// day14();
+day15();
