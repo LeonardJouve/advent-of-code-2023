@@ -17,7 +17,8 @@
 // import {day17} from "./day17.js";
 // import {day18} from "./day18.js";
 // import {day19} from "./day19.js";
-import {day21} from "./day21.js";
+// import {day21} from "./day21.js";
+import {day23} from "./day23.js";
 
 // day1();
 // day2();
@@ -38,4 +39,5 @@ import {day21} from "./day21.js";
 // day17();
 // day18();
 // day19();
-day21();
+// day21();
+day23();
